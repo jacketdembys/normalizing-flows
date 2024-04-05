@@ -77,6 +77,8 @@ class DiagGaussian(BaseDistribution):
             self.register_buffer("log_scale", torch.zeros(1, *self.shape))
         self.temperature = None  # Temperature parameter for annealed sampling
 
+        print("Loaded Gaussian ...")
+
     def forward(self, num_samples=1, context=None):
         eps = torch.randn(
             (num_samples,) + self.shape, dtype=self.loc.dtype, device=self.loc.device
